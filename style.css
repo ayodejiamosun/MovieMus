@@ -33,6 +33,24 @@
     border: solid 5px #8DA9C4;
 }
 
+.hide {
+    display: none;
+}
+
+img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+#test {
+    color: white;
+    margin: 0 auto;
+    text-align: center;
+    font-weight: bold;
+}
+
 @media (max-width: 992px){
    .plot{display: none;
    } 
