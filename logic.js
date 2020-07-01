@@ -27,7 +27,7 @@ function displayMovieInfo(){
    
 });
 }
-
+//on click starts movie search
 $("#find-movie").on("click", function(event) { 
  event.preventDefault();
  
