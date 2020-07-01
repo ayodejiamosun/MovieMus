@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>MovieMus</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
     <link rel="stylesheet" href="style.css">
 </head>
@@ -28,22 +28,16 @@
               <a class="nav-link" href="#">Link</a>
             </li>
           </ul>
-          <form id="movie-form" class="form-inline my-2 my-lg-0">
-            <label for="movie-input">Search for a movie</label>
-      <input type="text" id="movie-input"><br>
-
-      <!-- This button will trigger our AJAX call -->
-      <input id="find-movie" type="submit" value="Movie Search">
-            <!-- <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-            <button id="find-movie" class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button> -->
+          <form class="form-inline my-2 my-lg-0">
+            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" id="search-input">
+            <button class="btn btn-outline-success my-2 my-sm-0" type="submit" id="searchBtn">Search</button>
           </form>
         </div>
       </nav>
   </header>
 
   <!--Top soundtracks of all time-->
-  <div  id="movie-view"></div>
-<!-- <div id="suggestedMovies"> -->
+<div class="container">
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark rated">
     <a class="navbar-brand" href="#">Top Rated Sound Tracks</a>
   </nav>
@@ -73,10 +67,13 @@
         <p class="card-text"><small class="text-muted">(2004 Rated: R)</small></p>
       </div>
     </div>
-  </div>
+</div>
+</div>
+
+
 
   <!--Newest Soundtracks-->
-
+<div class="container">
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark rated">
     <a class="navbar-brand" href="#">Newest Soundtracks</a>
   </nav>
@@ -108,9 +105,21 @@
     </div>
   </div>
 </div>
-<!-- </div> -->
-    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
-    <script type="text/javascript" src="logic.js"></script>
+
+
+<!-- testing -->
+<div id="test">
+
+</div>
+
+</div>
+<!-- ^^^THIS DIV IS FOR THE BACKGROUND. DON'T DELETE -->
+
+  <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+  <!-- <script type="text/javascript" src="script.js"></script> -->
+  <!-- ^^this is the page for when you click on one single movie, but not there yet -->
+  <script type="text/javascript" src="script10.js"></script>
+
 </body>
 </html>
