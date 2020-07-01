@@ -3,6 +3,7 @@
     background-repeat: no-repeat;
     background-size: cover;
     background-attachment: fixed;
+    min-height: 100%;
 }
 
 .btn-outline-success {
@@ -27,10 +28,11 @@
     margin: 0 auto;
     background-color: transparent;
     color: #fff;
+    border: 0;
 }
 
 .card-img-top{
-    border: solid 5px #8DA9C4;
+    border: solid 2px #8DA9C4;
 }
 
 .hide {
@@ -43,6 +45,7 @@ img {
     margin-right: auto;
     margin-top: 15px;
     margin-bottom: 15px;
+    border: solid 2px #8DA9C4;
 }
 #test {
     color: white;
@@ -54,4 +57,12 @@ img {
 @media (max-width: 992px){
    .plot{display: none;
    } 
+}
+
+img:hover{
+    border: solid 5px #8DA9C4;
+}
+footer{
+    height: 80px;
+    text-align: center;
 }
