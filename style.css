@@ -62,7 +62,11 @@ img {
 img:hover{
     border: solid 5px #8DA9C4;
 }
-footer{
+.footer{
+    background-color: #343a40;
+    color: white;
+    font-size: small;
     height: 80px;
     text-align: center;
+    padding: 10px;
 }
