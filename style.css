@@ -63,10 +63,24 @@ img:hover{
     border: solid 5px #8DA9C4;
 }
 .footer{
+    /* position: fixed;
+    width: 100%;
+    left: 0;
+    bottom: 0; */
     background-color: #343a40;
     color: white;
     font-size: small;
     height: 80px;
     text-align: center;
     padding: 10px;
+    
+}
+.aboutinfo {
+    color: white;
+    text-align: center;
+    padding: 30px;
+    width: 750px;
+    margin: 0 auto;
+    padding-bottom: 310px;
+    padding-top: 100px;
 }
