@@ -33,6 +33,7 @@
 
 .card-img-top{
     border: solid 2px #8DA9C4;
+    
 }
 
 .hide {
@@ -72,8 +73,7 @@ img:hover{
     font-size: small;
     height: 80px;
     text-align: center;
-    padding: 10px;
-    
+    padding: 10px;   
 }
 .aboutinfo {
     color: white;
@@ -83,4 +83,9 @@ img:hover{
     margin: 0 auto;
     padding-bottom: 310px;
     padding-top: 100px;
+}
+
+.topRated{
+    color: #fff;
+    float: left;
 }
