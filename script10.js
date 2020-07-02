@@ -1,18 +1,132 @@
 
+//Home page music and movies
+
+//Top releases
+var queryURL = "https://itunes.apple.com/search?term=soundtracks&limit=5&entity=album";
+
+  $.ajax({
+    url: queryURL,
+      method: "GET",
+  }).then(function(response){
+    results1 = JSON.parse(response);
+    musicRes = results1.results;
+
+for(var i=0;i<6;i++){
+    var artist = musicRes[i].collectionName;
+    var topRated = $("<div>").attr("class","card");
+    var albumURL = musicRes[i].artworkUrl100;
+    var body = $("<div>").attr("class","card-body");
+    var albumName = $("<h6>").attr("class","card-title").text(artist)
+    var iTunes = $("<a>").attr({
+      href: musicRes[i].collectionViewUrl,
+      target: "_blank"
+  })
+     
+     var image = iTunes.prepend($("<img>").attr({
+                src: albumURL,
+                class: ["card-img-top"+" "+"albums"],
+                alt: artist
+                }));
+
+    topRated.prepend(image)
+
+    
+    body.append(albumName);
+
+    topRated.append(body)
+    $(".topRated").append(topRated)
+  }
+  });
+
+ 
+
+  //Disney releases
+  var queryURL = "https://itunes.apple.com/search?term=disney&limit=5&entity=album";
+
+  $.ajax({
+    url: queryURL,
+      method: "GET",
+  }).then(function(response){
+    results1 = JSON.parse(response);
+    musicRes = results1.results;
+
+for(var i=0;i<6;i++){
+    var artist = musicRes[i].collectionName;
+    var topRated = $("<div>").attr("class","card");
+    var albumURL = musicRes[i].artworkUrl100;
+    var body = $("<div>").attr("class","card-body");
+    var albumName = $("<h6>").attr("class","card-title").text(artist)
+    var iTunes = $("<a>").attr({
+      href: musicRes[i].collectionViewUrl,
+      target: "_blank"
+  })
+     
+     var image = iTunes.prepend($("<img>").attr({
+                src: albumURL,
+                class: ["card-img-top"+" "+"albums"],
+                alt: artist
+                }));
+
+    topRated.prepend(image)
+
+    
+    body.append(albumName);
+
+    topRated.append(body)
+    $(".disney").append(topRated)
+  }
+  });
+
+  
+  //Instrumental releases
+  var queryURL = "https://itunes.apple.com/search?term=soundtrack+movie+instrumental&limit=5&entity=album";
+
+  $.ajax({
+    url: queryURL,
+      method: "GET",
+  }).then(function(response){
+    results1 = JSON.parse(response);
+    musicRes = results1.results;
+
+for(var i=0;i<6;i++){
+    var artist = musicRes[i].collectionName;
+    var topRated = $("<div>").attr("class","card");
+    var albumURL = musicRes[i].artworkUrl100;
+    var body = $("<div>").attr("class","card-body");
+    var albumName = $("<h6>").attr("class","card-title").text(artist)
+    var iTunes = $("<a>").attr({
+      href: musicRes[i].collectionViewUrl,
+      target: "_blank"
+  })
+     
+     var image = iTunes.prepend($("<img>").attr({
+                src: albumURL,
+                class: ["card-img-top"+" "+"albums"],
+                alt: artist
+                }));
+
+    topRated.prepend(image)
+
+    
+    body.append(albumName);
+
+    topRated.append(body)
+    $(".instrument").append(topRated)
+  }
+  });
+
+
+  //Movie Search
 function displayMovieInfo() {
 
     var movie = $("#search-input").val();
     var queryURL = "https://www.omdbapi.com/?s=" + movie + "&apikey=6f8c5e73";
 
-    // Creates AJAX call for the specific movie button being clicked
     $.ajax({
       url: queryURL,
       method: "GET"
     }).then(function(response) {
-        // $(".test").text(JSON.stringify(response));
-        console.log(response);
-        
-
+  
         $(".container").addClass("hide");
 
         for (var i = 0; i < response.Search.length; i++) {
@@ -27,28 +141,9 @@ function displayMovieInfo() {
 
             $("#test").append(pPoster, pTitle);
 
-            localStorage.setItem(response.Search[i].Title+' '+response.Search[i].Year,JSON.stringify(response.Search[i]))
-
-            
-        }
-        // var rating = response.Rated;
-        // var pRating = $("<p>").text("Rating: " + rating);
-
-        // var release = response.Released;
-        // var pRelease = $("<p>").text("Release Date: " + release);
-
-        // var plot = response.Plot;
-        // var pPlot = $("<p>").text("Plot: " + plot);
-
-        // var posterURL = response.Poster
-        // var pPoster = $("<img>").attr("src", posterURL);
- 
-        // $("#test").prepend(pPoster, pRating, pRelease, pPlot);
-        
-
-    });
-
-  }
+            localStorage.setItem(response.Search[i].Title+' '+response.Search[i].Year,JSON.stringify(response.Search[i]))    
+  }}
+)};
 
 
 
@@ -58,8 +153,8 @@ $("#searchBtn").on("click", function(event) {
     $("#test").empty();
     displayMovieInfo();
     $("#search-input").val("");
-
 });
+
 
 $("#test").click(function(){
   console.log(event.target.id)
@@ -92,6 +187,5 @@ for(var i=0;i<6;i++){
     var albumURL = musicRes[i].artworkUrl100;
     var albumCover = $("<img>").attr("src", albumURL);
     albums.append(albumCover);
-  }
-  })
+  }})
 });

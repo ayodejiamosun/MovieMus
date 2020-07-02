@@ -33,6 +33,7 @@
 
 .card-img-top{
     border: solid 2px #8DA9C4;
+    
 }
 
 .hide {
@@ -65,4 +66,13 @@ img:hover{
 footer{
     height: 80px;
     text-align: center;
+}
+
+.topRated{
+    color: #fff;
+    float: left;
+}
+
+.albums{
+    
 }
