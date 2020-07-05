@@ -149,6 +149,9 @@ function displayMovieInfo() {
 
 $("#searchBtn").on("click", function(event) {
     event.preventDefault();
+    $("#movieNmusic").empty();
+    $("#justMusic").empty();
+    $("#test").removeClass("hide");
     localStorage.clear();
     $("#test").empty();
     displayMovieInfo();
@@ -185,7 +188,22 @@ $("#test").click(function(){
 
 for(var i=0;i<6;i++){
     var albumURL = musicRes[i].artworkUrl100;
-    var albumCover = $("<img>").attr("src", albumURL);
+
+    var artist = musicRes[i].collectionName;
+    var albumName = $("<h6>").attr("class","card-title").text(artist)
+
+    var iTunes = $("<a>").attr({
+      href: musicRes[i].collectionViewUrl,
+      target: "_blank"
+  })
+     
+     var albumCover = iTunes.prepend($("<img>").attr({
+                src: albumURL,
+                class: ["albums"],
+                alt: artist
+                }));
+
+
     albums.append(albumCover);
   }})
 });
