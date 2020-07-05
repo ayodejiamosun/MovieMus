@@ -200,7 +200,8 @@ for(var i=0;i<6;i++){
     var albumName = $("<h4>").attr("class","card-title").text(artist)
 
     var albumArt = musicRes[i].artistName;
-    var albumArtist = $("<h6>").text("Artist: " + albumArt);
+
+    var albumArtist = $("<h5>").text("Artist: " + albumArt);
 
     var iTunes = $("<a>").attr({
       href: musicRes[i].collectionViewUrl,
