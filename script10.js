@@ -76,7 +76,7 @@ for(var i=0;i<6;i++){
   }
   });
 
-  // ================================
+// ================================
 
   //Instrumental releases
   var queryURL = "https://itunes.apple.com/search?term=soundtrack+movie+instrumental&limit=5&entity=album";
@@ -200,6 +200,7 @@ for(var i=0;i<6;i++){
     var albumName = $("<h4>").attr("class","card-title").text(artist)
 
     var albumArt = musicRes[i].artistName;
+
     var albumArtist = $("<h5>").text("Artist: " + albumArt);
 
     var iTunes = $("<a>").attr({
