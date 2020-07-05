@@ -3,6 +3,7 @@
     background-repeat: no-repeat;
     background-size: cover;
     background-attachment: fixed;
+    min-height: 100%;
 }
 
 .btn-outline-success {
@@ -27,16 +28,68 @@
     margin: 0 auto;
     background-color: transparent;
     color: #fff;
+    border: 0;
 }
 
 .card-img-top{
-    border: solid 5px #8DA9C4;
+    border: solid 2px #8DA9C4;
 }
-.hide{
-    display:none;
+
+.hide {
+    display: none;
+}
+
+img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    border: solid 2px #8DA9C4;
+}
+#test {
+    color: white;
+    margin: 0 auto;
+    text-align: center;
+    font-weight: bold;
 }
 
 @media (max-width: 992px){
    .plot{display: none;
    } 
+}
+
+img:hover{
+    border: solid 5px #8DA9C4;
+}
+footer{
+    height: 80px;
+    text-align: center;
+}
+h1{
+    margin: auto;
+    width: 50%;
+    padding: 10px;
+    color:yellow;
+}
+
+h4{
+    margin: auto;
+    width: 50%;
+    padding: 10px;
+    color: aliceblue;
+}
+
+h6{
+    margin: auto;
+  width: 50%;
+  padding: 10px;
+    color: aliceblue;
+}
+
+#soundTrackImg{
+float: right !important;
+margin:0px !important;
+border:0px;
+padding:0px;
 }
