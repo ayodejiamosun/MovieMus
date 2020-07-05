@@ -1,20 +1,133 @@
-  function displayMovieInfo() {
+//Home page music and movies
 
-   var movie = $("#search-input").val();
-   var queryURL = "https://www.omdbapi.com/?s=" + movie + "&apikey=6f8c5e73";
+//Top releases
+var queryURL = "https://itunes.apple.com/search?term=soundtracks&limit=5&entity=album";
 
- // Creates AJAX call for the specific movie button being clicked
+  $.ajax({
+    url: queryURL,
+      method: "GET",
+  }).then(function(response){
+    results1 = JSON.parse(response);
+    musicRes = results1.results;
+
+for(var i=0;i<6;i++){
+    var artist = musicRes[i].collectionName;
+    var topRated = $("<div>").attr("class","card");
+    var albumURL = musicRes[i].artworkUrl100;
+    var body = $("<div>").attr("class","card-body");
+    var albumName = $("<h6>").attr("class","card-title").text(artist)
+    var iTunes = $("<a>").attr({
+      href: musicRes[i].collectionViewUrl,
+      target: "_blank"
+  })
+     
+     var image = iTunes.prepend($("<img>").attr({
+                src: albumURL,
+                class: ["card-img-top"+" "+"albums"],
+                alt: artist
+                }));
+
+    topRated.prepend(image)
+
+    
+    body.append(albumName);
+
+    topRated.append(body)
+    $(".topRated").append(topRated)
+  }
+  });
+
+ 
+
+  //Disney releases
+  var queryURL = "https://itunes.apple.com/search?term=disney&limit=5&entity=album";
+
+  $.ajax({
+    url: queryURL,
+      method: "GET",
+  }).then(function(response){
+    results1 = JSON.parse(response);
+    musicRes = results1.results;
+
+for(var i=0;i<6;i++){
+    var artist = musicRes[i].collectionName;
+    var topRated = $("<div>").attr("class","card");
+    var albumURL = musicRes[i].artworkUrl100;
+    var body = $("<div>").attr("class","card-body");
+    var albumName = $("<h6>").attr("class","card-title").text(artist)
+    var iTunes = $("<a>").attr({
+      href: musicRes[i].collectionViewUrl,
+      target: "_blank"
+  })
+     
+     var image = iTunes.prepend($("<img>").attr({
+                src: albumURL,
+                class: ["card-img-top"+" "+"albums"],
+                alt: artist
+                }));
+
+    topRated.prepend(image)
+
+    
+    body.append(albumName);
+
+    topRated.append(body)
+    $(".disney").append(topRated)
+  }
+  });
+
+  
+  //Instrumental releases
+  var queryURL = "https://itunes.apple.com/search?term=soundtrack+movie+instrumental&limit=5&entity=album";
+
+  $.ajax({
+    url: queryURL,
+      method: "GET",
+  }).then(function(response){
+    results1 = JSON.parse(response);
+    musicRes = results1.results;
+
+for(var i=0;i<6;i++){
+    var artist = musicRes[i].collectionName;
+    var topRated = $("<div>").attr("class","card");
+    var albumURL = musicRes[i].artworkUrl100;
+    var body = $("<div>").attr("class","card-body");
+    var albumName = $("<h6>").attr("class","card-title").text(artist)
+    var iTunes = $("<a>").attr({
+      href: musicRes[i].collectionViewUrl,
+      target: "_blank"
+  })
+     
+     var image = iTunes.prepend($("<img>").attr({
+                src: albumURL,
+                class: ["card-img-top"+" "+"albums"],
+                alt: artist
+                }));
+
+    topRated.prepend(image)
+
+    
+    body.append(albumName);
+
+    topRated.append(body)
+    $(".instrument").append(topRated)
+  }
+  });
+
+
+  //Movie Search
+function displayMovieInfo() {
+
+    var movie = $("#search-input").val();
+    var queryURL = "https://www.omdbapi.com/?s=" + movie + "&apikey=6f8c5e73";
+
     $.ajax({
       url: queryURL,
       method: "GET"
-      // Store retrieved data as "respnse"
     }).then(function(response) {
-        
-        console.log(response);
-        
-        // Hide container
+  
         $(".container").addClass("hide");
-        // Loop through response and append attributes
+
         for (var i = 0; i < response.Search.length; i++) {
             var posterURL = response.Search[i].Poster;
             var pPoster = $("<img>").attr({
@@ -25,25 +138,23 @@
             var title = response.Search[i].Title
             var pTitle = $("<p>").text("Title: " + title);
 
-
             $("#test").append(pPoster, pTitle);
 
-            localStorage.setItem(response.Search[i].Title+' '+response.Search[i].Year,JSON.stringify(response.Search[i]))
+            localStorage.setItem(response.Search[i].Title+' '+response.Search[i].Year,JSON.stringify(response.Search[i]))    
+  }}
+)};
 
-            
-        }
-    });
-  }
-// Event listener for search button click
+
+
 $("#searchBtn").on("click", function(event) {
     event.preventDefault();
     localStorage.clear();
     $("#test").empty();
     displayMovieInfo();
     $("#search-input").val("");
-
 });
-// Event listener for Movie poster
+
+
 $("#test").click(function(){
   console.log(event.target.id)
   var movieMusic = $("#movieNmusic");
@@ -53,22 +164,16 @@ $("#test").click(function(){
   var music = results.Title;
   var albums = $("#justMusic");
   console.log(music);
-  
-  // Add Title "SoundTracks"
-  sTitle = $("<h1>").text("SoundTracks")
-  albums.append(sTitle);
-  $("#test").addClass("hide");
 
-  // Show hidden divs
+  $("#test").addClass("hide");
   movieMusic.removeClass("hide");
   albums.removeClass("hide");
- 
     var posterURL = results.Poster;
     var pPoster = $("<img>").attr("src", posterURL);
     movieMusic.append(pPoster);
 
     var queryURL = "https://itunes.apple.com/search?term="+music+"&limit=6&entity=album";
-// Second AJAX call for movie soundtrack data
+
   $.ajax({
     url: queryURL,
       method: "GET",
@@ -79,18 +184,7 @@ $("#test").click(function(){
 
 for(var i=0;i<6;i++){
     var albumURL = musicRes[i].artworkUrl100;
-    var albumCover = $("<img>").addClass("soundTrackImg").attr("src", albumURL);
-    
-    var albumNam = musicRes[i].collectionName;
-    var albumName = $("<h4>").text("Album Name: " + albumNam);
-
-    var albumArt = musicRes[i].artistName;
-    var albumArtist = $("<h6>").text("Artist: " + albumArt);
-
-    // var albumY = musicRes[i].releaseDate;
-    // var albumYear = $("<h6>").text("Year: " + albumY);
-
-    albums.append(albumName, albumArtist, albumCover);
-  }
-  })
+    var albumCover = $("<img>").attr("src", albumURL);
+    albums.append(albumCover);
+  }})
 });
