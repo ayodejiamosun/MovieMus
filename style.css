@@ -89,3 +89,23 @@ img:hover{
     color: #fff;
     float: left;
 }
+h1{
+    margin: auto;
+    width: 50%;
+    padding: 10px;
+    color:yellow;
+}
+
+h4{
+    margin: auto;
+    width: 50%;
+    padding: 10px;
+    color: aliceblue;
+}
+
+h6{
+    margin: auto;
+  width: 50%;
+  padding: 10px;
+    color: aliceblue;
+}

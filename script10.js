@@ -1,4 +1,3 @@
-
 //Home page music and movies
 
 //Top releases
@@ -38,7 +37,7 @@ for(var i=0;i<6;i++){
   }
   });
 
- 
+// ================================
 
   //Disney releases
   var queryURL = "https://itunes.apple.com/search?term=disney&limit=5&entity=album";
@@ -77,7 +76,8 @@ for(var i=0;i<6;i++){
   }
   });
 
-  
+// ================================
+
   //Instrumental releases
   var queryURL = "https://itunes.apple.com/search?term=soundtrack+movie+instrumental&limit=5&entity=album";
 
@@ -115,8 +115,9 @@ for(var i=0;i<6;i++){
   }
   });
 
+// ================================
 
-  //Movie Search
+//Movie Search
 function displayMovieInfo() {
 
     var movie = $("#search-input").val();
@@ -145,8 +146,9 @@ function displayMovieInfo() {
   }}
 )};
 
+// ================================
 
-
+// Search button for movie
 $("#searchBtn").on("click", function(event) {
     event.preventDefault();
     $("#movieNmusic").empty();
@@ -158,7 +160,7 @@ $("#searchBtn").on("click", function(event) {
     $("#search-input").val("");
 });
 
-
+// SoundTrack search after clicking poster
 $("#test").click(function(){
   console.log(event.target.id)
   var movieMusic = $("#movieNmusic");
@@ -169,6 +171,11 @@ $("#test").click(function(){
   var albums = $("#justMusic");
   console.log(music);
 
+ // Add Title "SoundTracks"
+ sTitle = $("<h1>").text("SoundTracks")
+ albums.append(sTitle);
+
+ // Hide Test div
   $("#test").addClass("hide");
   movieMusic.removeClass("hide");
   albums.removeClass("hide");
@@ -190,7 +197,10 @@ for(var i=0;i<6;i++){
     var albumURL = musicRes[i].artworkUrl100;
 
     var artist = musicRes[i].collectionName;
-    var albumName = $("<h6>").attr("class","card-title").text(artist)
+    var albumName = $("<h4>").attr("class","card-title").text(artist)
+
+    var albumArt = musicRes[i].artistName;
+    var albumArtist = $("<h6>").text("Artist: " + albumArt);
 
     var iTunes = $("<a>").attr({
       href: musicRes[i].collectionViewUrl,
@@ -204,6 +214,6 @@ for(var i=0;i<6;i++){
                 }));
 
 
-    albums.append(albumCover);
+    albums.append(albumName, albumArtist, albumCover);
   }})
 });
