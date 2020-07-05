@@ -182,11 +182,11 @@ $("#test").click(function(){
 
   //Add movie information
   var yearRelease = $("<p>").text(information.Year);
-  var plot = $("<p>").text(information.Plot);
-  var cast = $("<p>").text(information.Actors);
-  var director = $("<p>").text(information.Director);
-  var awards = $("<p>").text(information.Awards);
-  var boxOffice = $("<p>").text(information.BoxOffice);
+  var plot = $("<p>").text("Plot: "+information.Plot);
+  var cast = $("<p>").text("Cast: "+information.Actors);
+  var director = $("<p>").text("Director: "+information.Director);
+  var awards = $("<p>").text("Awards: "+information.Awards);
+  var boxOffice = $("<p>").text("Box Office: "+information.BoxOffice);
   infoCard.append(movieTitle, yearRelease, plot, cast, director, awards, boxOffice);
 });
 
