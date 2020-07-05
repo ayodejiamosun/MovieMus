@@ -127,7 +127,6 @@ function displayMovieInfo() {
       url: queryURL,
       method: "GET"
     }).then(function(response) {
-  
         $(".container").addClass("hide");
 
         for (var i = 0; i < response.Search.length; i++) {
@@ -152,6 +151,7 @@ function displayMovieInfo() {
 $("#searchBtn").on("click", function(event) {
     event.preventDefault();
     $("#movieNmusic").empty();
+    $("#movieInfo").empty();
     $("#justMusic").empty();
     $("#test").removeClass("hide");
     localStorage.clear();
@@ -162,14 +162,33 @@ $("#searchBtn").on("click", function(event) {
 
 // SoundTrack search after clicking poster
 $("#test").click(function(){
-  console.log(event.target.id)
   var movieMusic = $("#movieNmusic");
   var movie = event.target.id;
   var results = JSON.parse(localStorage.getItem(movie));
-  console.log(results);
   var music = results.Title;
   var albums = $("#justMusic");
-  console.log(music);
+  var infoCard = $("#movieInfo")
+  var movieTitle = $("<h2>").text(music);
+
+  var movieID = results.imdbID;
+  console.log(movieID)
+  var queryURL = "https://www.omdbapi.com/?i=" + movieID + "&apikey=6f8c5e73";
+
+  $.ajax({
+    url: queryURL,
+    method: "GET"
+  }).then(function(information) {
+    console.log(information)
+
+  //Add movie information
+  var yearRelease = $("<p>").text(information.Year);
+  var plot = $("<p>").text(information.Plot);
+  var cast = $("<p>").text(information.Actors);
+  var director = $("<p>").text(information.Director);
+  var awards = $("<p>").text(information.Awards);
+  var boxOffice = $("<p>").text(information.BoxOffice);
+  infoCard.append(movieTitle, yearRelease, plot, cast, director, awards, boxOffice);
+});
 
  // Add Title "SoundTracks"
  sTitle = $("<h1>").text("SoundTracks")
@@ -191,7 +210,6 @@ $("#test").click(function(){
   }).then(function(response){
     results1 = JSON.parse(response);
     musicRes = results1.results;
-    console.log(musicRes);
 
 for(var i=0;i<6;i++){
     var albumURL = musicRes[i].artworkUrl100;
