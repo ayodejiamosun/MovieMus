@@ -40,7 +40,7 @@ for(var i=0;i<5;i++){
 // ================================
 
   //Disney releases
-  var queryURL = "https://itunes.apple.com/search?term=disney&limit=5&entity=album";
+  var queryURL = "https://cors-ut-bootcamp.herokuapp.com/https://itunes.apple.com/search?term=disney&limit=5&entity=album";
 
   $.ajax({
     url: queryURL,
@@ -79,7 +79,7 @@ for(var i=0;i<5;i++){
 // ================================
 
   //Instrumental releases
-  var queryURL = "https://itunes.apple.com/search?term=soundtrack+movie+instrumental&limit=5&entity=album";
+  var queryURL = "https://cors-ut-bootcamp.herokuapp.com/https://itunes.apple.com/search?term=soundtrack+movie+instrumental&limit=5&entity=album";
 
   $.ajax({
     url: queryURL,
@@ -200,7 +200,7 @@ $("#test").click(function(){
     var pPoster = $("<img>").attr("src", posterURL);
     movieMusic.append(pPoster);
 
-    var queryURL = "https://itunes.apple.com/search?term="+music+"&limit=6&entity=album";
+    var queryURL = "https://cors-ut-bootcamp.herokuapp.com/https://itunes.apple.com/search?term="+music+"&limit=6&entity=album";
 
   $.ajax({
     url: queryURL,
