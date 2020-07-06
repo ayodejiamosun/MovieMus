@@ -10,7 +10,7 @@ var queryURL = "https://itunes.apple.com/search?term=soundtracks&limit=5&entity=
     results1 = JSON.parse(response);
     musicRes = results1.results;
 
-for(var i=0;i<6;i++){
+for(var i=0;i<5;i++){
     var artist = musicRes[i].collectionName;
     var topRated = $("<div>").attr("class","card");
     var albumURL = musicRes[i].artworkUrl100;
@@ -49,7 +49,7 @@ for(var i=0;i<6;i++){
     results1 = JSON.parse(response);
     musicRes = results1.results;
 
-for(var i=0;i<6;i++){
+for(var i=0;i<5;i++){
     var artist = musicRes[i].collectionName;
     var topRated = $("<div>").attr("class","card");
     var albumURL = musicRes[i].artworkUrl100;
@@ -88,7 +88,7 @@ for(var i=0;i<6;i++){
     results1 = JSON.parse(response);
     musicRes = results1.results;
 
-for(var i=0;i<6;i++){
+for(var i=0;i<5;i++){
     var artist = musicRes[i].collectionName;
     var topRated = $("<div>").attr("class","card");
     var albumURL = musicRes[i].artworkUrl100;
