@@ -1,7 +1,7 @@
 //Home page music and movies
 
 //Top releases
-var queryURL = "https://itunes.apple.com/search?term=soundtracks&limit=5&entity=album";
+var queryURL = "https://cors-ut-bootcamp.herokuapp.com/https://itunes.apple.com/search?term=soundtracks&limit=5&entity=album";
 
   $.ajax({
     url: queryURL,
@@ -171,14 +171,12 @@ $("#test").click(function(){
   var movieTitle = $("<h2>").text(music);
 
   var movieID = results.imdbID;
-  console.log(movieID)
   var queryURL = "https://www.omdbapi.com/?i=" + movieID + "&apikey=6f8c5e73";
 
   $.ajax({
     url: queryURL,
     method: "GET"
   }).then(function(information) {
-    console.log(information)
 
   //Add movie information
   var yearRelease = $("<p>").text(information.Year);
