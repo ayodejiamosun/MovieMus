@@ -1,4 +1,5 @@
-![Logo](movieMuse.jpg)
+<img src="movieMuse.jpg" width="150"/>
+
 # movieMus 
 
 ## Description
@@ -21,7 +22,7 @@ SO THAT I don't have to use multiple websites or applications to find out the so
 
 [Installation](#installation)
 
-[Usage](#usage)
+[Use](#use)
 
 [Collaborators](#collaborators)
 
@@ -41,6 +42,23 @@ The back-end of the application uses javascript, AJAX and jQuery.
 3. Select index.html and open in default browser
 
 ---
+## Use
+### Landing in
+On this page you will see a variety of catagories for music related to movies that link to iTunes.
+There is also a search button in the upper right for looking for a specific movie.
+
+<img src="movieMuse1.PNG" width="500"/>
+
+### Results Page
+This page will display the results of the search that was performed. The images will link to further information on another screen.
+
+<img src="movieMuse2.PNG" width="500"/>
+
+### Information Page
+Here is displayed more information on the selected movie. It will include further information about the movie, as well as music related to said movie. The soundtracks displayed will link to their related iTunes page.
+
+<img src="movieMuse3.PNG" width="500"/>
+
 ## Collaborators
 Steven Johnson:
 [LinkedIn](https://www.linkedin.com/in/stevenjohnson87/),
